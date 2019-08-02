@@ -77,8 +77,8 @@ function buildMetadata(sample) {
        color: '850000'
      }
     }],
-     height: 300,
-     width: 300,
+     height: 700,
+     width: 700,
      title: '<b>Belly Button Washing Frequency</b> <br> Scrubs per Week', 
      xaxis: {zeroline:false, showticklabels:false,
         showgrid: false, range: [-1, 1]},
@@ -105,6 +105,7 @@ function buildCharts(sample) {
     var trace1={
       labels: otuIds.slice(0, 10),
       values: sampleValues.slice(0, 10), 
+      text: otuLabels.slice(0, 10),
       type: 'pie'
     }
     var data1 = [trace1];
@@ -114,6 +115,7 @@ function buildCharts(sample) {
     var trace2 ={
       x : otuIds,
       y : sampleValues,
+      text: otuLabels
       mode: "markers",
       marker :{
         size: sampleValues, 
