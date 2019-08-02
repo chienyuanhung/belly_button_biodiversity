@@ -1,5 +1,5 @@
 function buildMetadata(sample) {
-  url1 = `/metadata/${sample}`
+  url1 = `/metadata/${sample}`;
   // Use `d3.json` to fetch the metadata for a sample
   d3.json(url1).then(function(metadata){
     var metadata = [metadata];
@@ -11,7 +11,7 @@ function buildMetadata(sample) {
     dataContainer.html("");
 
     // Use `Object.entries` to add each key and value pair to the panel
-    dataPair = []
+    dataPair = [];
     Object.entries(metadata).forEach(([key, value])=>{
       dataPair.push(key,value);
     });
@@ -23,8 +23,8 @@ function buildMetadata(sample) {
     .enter()
     .append('p')
     .text(function(d){
-      return `${d[0]}:${d[1]}`
-    })
+      return `${d[0]}:${d[1]}`;
+    });
     
     // BONUS: Build the Gauge Chart
     var level = pair[5][1]*20;
@@ -93,13 +93,13 @@ function buildMetadata(sample) {
 }
 
 function buildCharts(sample) {
-  url2 = `/samples/${sample}`
+  url2 = `/samples/${sample}`;
   // Use `d3.json` to fetch the sample data for the plots
   d3.json(url2).then(function(data){
     var data = [data];
     otuIds = data[0].otu_ids;
     otuLabels = data[0].otu_labels;
-    sampleValues = data[0].sample_values
+    sampleValues = data[0].sample_values;
 
     // Build a Pie Chart
     var trace1={
@@ -107,7 +107,7 @@ function buildCharts(sample) {
       values: sampleValues.slice(0, 10), 
       text: otuLabels.slice(0, 10),
       type: 'pie'
-    }
+    };
     var data1 = [trace1];
     Plotly.newPlot("pie", data1);
 
@@ -115,7 +115,7 @@ function buildCharts(sample) {
     var trace2 ={
       x : otuIds,
       y : sampleValues,
-      text: otuLabels
+      text: otuLabels,
       mode: "markers",
       marker :{
         size: sampleValues, 
@@ -127,7 +127,7 @@ function buildCharts(sample) {
     Plotly.newPlot("bubble", data2);
 
 
-  })
+  });
   
 }
 
