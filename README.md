@@ -4,7 +4,7 @@
 
 * web page for belly button biodiversity data
  
-![](images/wbshow.png)
+![](images/web_show.png)
 
 * dropdown menu for data
 
