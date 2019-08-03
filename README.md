@@ -8,7 +8,7 @@
 
 * dropdown menu for data
 
-![](images/dropdown.png)
+![](images/dropdown.png | width =150)
 
 * info chart
 
